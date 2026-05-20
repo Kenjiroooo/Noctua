@@ -1,0 +1,496 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════
+   TOAST & UI ANIMATIONS
+   ══════════════════════════════════════════════ */
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-slide-up { animation: slide-up 0.35s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in { animation: fade-in 0.2s ease-out forwards; }
+
+.drag-over {
+  border-color: #6b4f3a !important;
+  background-color: #f4ece9 !important;
+  box-shadow: 0 0 0 3px rgba(107,79,58,0.15);
+}
+
+@keyframes pulse-dot {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+.animate-pulse-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
+
+@keyframes fill-progress {
+  from { width: 0%; }
+}
+.animate-fill { animation: fill-progress 0.8s ease-out forwards; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d3c4ba; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #81756d; }
+
+
+/* ══════════════════════════════════════════════
+   OWL MASCOT ANIMATIONS
+   ══════════════════════════════════════════════ */
+
+/* ── Base body group ── */
+.owl-body-group {
+  transform-origin: 100px 140px;
+}
+
+/* ── IDLE: gentle float + blink ── */
+.owl-mood-idle .owl-body-group {
+  animation: owl-float 3s ease-in-out infinite;
+}
+.owl-mood-idle .owl-eyes {
+  animation: owl-blink 4s ease-in-out infinite;
+}
+
+@keyframes owl-float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes owl-blink {
+  0%,42%,48%,100% { transform: scaleY(1); }
+  45% { transform: scaleY(0.08); }
+}
+
+/* ── HAPPY: bounce + blush pulse ── */
+.owl-mood-happy .owl-body-group {
+  animation: owl-bounce 1.2s ease-in-out infinite;
+}
+.owl-mood-happy .owl-blush {
+  animation: owl-blush-pulse 1.5s ease-in-out infinite;
+}
+.owl-mood-happy .owl-eyes {
+  animation: owl-blink 3s ease-in-out infinite;
+}
+
+@keyframes owl-bounce {
+  0%,100% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+  60% { transform: translateY(0); }
+  80% { transform: translateY(-4px); }
+}
+@keyframes owl-blush-pulse {
+  0%,100% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+}
+
+/* ── SAD: droop + tears ── */
+.owl-mood-sad .owl-body-group {
+  animation: owl-droop 3s ease-in-out infinite;
+}
+.owl-mood-sad .owl-tear-1 {
+  animation: owl-tear-fall 2s ease-in infinite;
+}
+.owl-mood-sad .owl-tear-2 {
+  animation: owl-tear-fall 2s ease-in 0.8s infinite;
+}
+
+@keyframes owl-droop {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(4px) rotate(-2deg); }
+}
+@keyframes owl-tear-fall {
+  0% { transform: translateY(0); opacity: 0.7; }
+  70% { opacity: 0.4; }
+  100% { transform: translateY(18px); opacity: 0; }
+}
+
+/* ── THINKING: head tilt + thought bubble ── */
+.owl-mood-thinking .owl-body-group {
+  animation: owl-think-tilt 2.5s ease-in-out infinite;
+}
+.owl-mood-thinking .owl-thought {
+  animation: owl-thought-pop 2s ease-in-out infinite;
+}
+
+@keyframes owl-think-tilt {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg) translateY(-3px); }
+}
+@keyframes owl-thought-pop {
+  0%,100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+/* ── WRITING: look down + pencil moves ── */
+.owl-mood-writing .owl-body-group {
+  animation: owl-write-bob 1.5s ease-in-out infinite;
+}
+.owl-mood-writing .owl-pencil {
+  animation: owl-pencil-move 0.8s ease-in-out infinite;
+}
+.owl-mood-writing .owl-eyes {
+  animation: owl-blink 5s ease-in-out infinite;
+}
+
+@keyframes owl-write-bob {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(2px) rotate(2deg); }
+}
+@keyframes owl-pencil-move {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  25% { transform: translate(3px,1px) rotate(3deg); }
+  50% { transform: translate(-1px,0) rotate(-2deg); }
+  75% { transform: translate(2px,-1px) rotate(2deg); }
+}
+
+/* ── TEACHING: pointing + lightbulb ── */
+.owl-mood-teaching .owl-body-group {
+  animation: owl-teach-sway 2s ease-in-out infinite;
+}
+.owl-mood-teaching .owl-wing-right {
+  animation: owl-wing-raise 1.5s ease-in-out infinite;
+  transform-origin: 150px 148px;
+}
+.owl-mood-teaching .owl-lightbulb {
+  animation: owl-bulb-glow 1.2s ease-in-out infinite;
+}
+.owl-mood-teaching .owl-pointer {
+  animation: owl-pointer-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes owl-teach-sway {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes owl-wing-raise {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(-12deg); }
+}
+@keyframes owl-bulb-glow {
+  0%,100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+@keyframes owl-pointer-bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ── CELEBRATING: jump + sparkles ── */
+.owl-mood-celebrating .owl-body-group {
+  animation: owl-celebrate 1s ease-in-out infinite;
+}
+.owl-mood-celebrating .owl-wing-left {
+  animation: owl-wing-flap-left 0.5s ease-in-out infinite;
+  transform-origin: 50px 148px;
+}
+.owl-mood-celebrating .owl-wing-right {
+  animation: owl-wing-flap-right 0.5s ease-in-out infinite;
+  transform-origin: 150px 148px;
+}
+.owl-mood-celebrating .owl-blush {
+  animation: owl-blush-pulse 1s ease-in-out infinite;
+}
+.owl-mood-celebrating .owl-star {
+  animation: owl-star-spin 1.5s linear infinite;
+  transform-origin: center;
+}
+
+.owl-sparkle-1 { animation: owl-sparkle-float 1.8s ease-in-out infinite 0s; }
+.owl-sparkle-2 { animation: owl-sparkle-float 1.8s ease-in-out infinite 0.3s; }
+.owl-sparkle-3 { animation: owl-sparkle-float 1.8s ease-in-out infinite 0.6s; }
+.owl-sparkle-4 { animation: owl-sparkle-float 1.8s ease-in-out infinite 0.9s; }
+.owl-sparkle-5 { animation: owl-sparkle-float 1.8s ease-in-out infinite 1.2s; }
+.owl-sparkle-6 { animation: owl-sparkle-float 1.8s ease-in-out infinite 1.5s; }
+
+@keyframes owl-celebrate {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-18px) rotate(-4deg); }
+  50% { transform: translateY(-4px) rotate(0deg); }
+  75% { transform: translateY(-18px) rotate(4deg); }
+}
+@keyframes owl-wing-flap-left {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(20deg); }
+}
+@keyframes owl-wing-flap-right {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(-20deg); }
+}
+@keyframes owl-sparkle-float {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  30% { opacity: 1; transform: translateY(-5px) scale(1.1); }
+  70% { opacity: 1; transform: translateY(-10px) scale(1); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+}
+@keyframes owl-star-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── SLEEPING: gentle rock + zzz ── */
+.owl-mood-sleeping .owl-body-group {
+  animation: owl-sleep-rock 4s ease-in-out infinite;
+}
+.owl-zzz-1 { animation: owl-zzz-float 2.5s ease-in-out infinite 0s; }
+.owl-zzz-2 { animation: owl-zzz-float 2.5s ease-in-out infinite 0.5s; }
+.owl-zzz-3 { animation: owl-zzz-float 2.5s ease-in-out infinite 1s; }
+
+@keyframes owl-sleep-rock {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(-3deg) translateY(3px); }
+}
+@keyframes owl-zzz-float {
+  0% { opacity: 0; transform: translate(0,0) scale(0.7); }
+  30% { opacity: 0.8; }
+  100% { opacity: 0; transform: translate(8px,-22px) scale(1.2); }
+}
+
+/* ── Shadow animation syncs with body ── */
+.owl-mood-celebrating .owl-shadow {
+  animation: owl-shadow-shrink 1s ease-in-out infinite;
+}
+@keyframes owl-shadow-shrink {
+  0%,100% { rx: 40; opacity: 0.08; }
+  25%,75% { rx: 30; opacity: 0.04; }
+  50% { rx: 38; opacity: 0.07; }
+}
+
+/* ══════════════════════════════════════════════
+   LOGIN PAGE
+   ══════════════════════════════════════════════ */
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.login-bg {
+  background: linear-gradient(135deg, #fff8f5 0%, #ffecd2 25%, #ffdcc4 50%, #fff8f5 75%, #f4ece9 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+.login-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+.login-orb-1 {
+  width: 300px; height: 300px;
+  background: #6b4f3a;
+  top: 10%; left: 10%;
+  animation: float-orb 8s ease-in-out infinite;
+}
+.login-orb-2 {
+  width: 250px; height: 250px;
+  background: #ffdcc4;
+  bottom: 15%; right: 10%;
+  animation: float-orb 10s ease-in-out infinite 2s;
+}
+.login-orb-3 {
+  width: 200px; height: 200px;
+  background: #81756d;
+  top: 50%; right: 30%;
+  animation: float-orb 12s ease-in-out infinite 4s;
+}
+
+@keyframes card-enter {
+  from { opacity: 0; transform: translateY(30px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.login-card {
+  animation: card-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.login-spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* Loading screen */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+.loading-pulse { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* ══════════════════════════════════════════════
+   MARKDOWN RENDERER (AI output formatting)
+   ══════════════════════════════════════════════ */
+
+.markdown-body h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1e1b19;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  border-bottom: 2px solid #e9e1dd;
+  padding-bottom: 0.5rem;
+}
+.markdown-body h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e1b19;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+.markdown-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #4f453e;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4f453e;
+  margin-top: 0.75rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Remove top margin on first child */
+.markdown-body > *:first-child {
+  margin-top: 0;
+}
+
+.markdown-body p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.8;
+}
+
+.markdown-body strong {
+  font-weight: 700;
+  color: #1e1b19;
+}
+
+.markdown-body em {
+  font-style: italic;
+  color: #4f453e;
+}
+
+.markdown-body ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body li {
+  margin-bottom: 0.35rem;
+  line-height: 1.7;
+  padding-left: 0.25rem;
+}
+
+.markdown-body li > ul,
+.markdown-body li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.markdown-body hr {
+  border: none;
+  border-top: 2px solid #e9e1dd;
+  margin: 1.25rem 0;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid #6b4f3a;
+  background: rgba(107, 79, 58, 0.06);
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 0 12px 12px 0;
+  color: #4f453e;
+}
+.markdown-body blockquote p {
+  margin: 0.25rem 0;
+}
+
+.markdown-body code {
+  background: rgba(107, 79, 58, 0.1);
+  color: #513825;
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.88em;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.markdown-body pre {
+  background: #1e1b19;
+  color: #f4ece9;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.markdown-body pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.markdown-body a {
+  color: #6b4f3a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+.markdown-body a:hover {
+  color: #513825;
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+}
+.markdown-body th {
+  background: rgba(107, 79, 58, 0.1);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e9e1dd;
+}
+.markdown-body td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e9e1dd;
+}

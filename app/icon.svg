@@ -1,0 +1,63 @@
+<svg viewBox="6 10 187 187" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="100" cy="230" rx="40" ry="7" fill="black" opacity="0.08" />
+
+  <g>
+    <!-- Feet -->
+    <ellipse cx="80" cy="220" rx="13" ry="5" fill="#ffab69" />
+    <ellipse cx="120" cy="220" rx="13" ry="5" fill="#ffab69" />
+    <circle cx="70" cy="222" r="3.5" fill="#ffab69" />
+    <circle cx="80" cy="224" r="3.5" fill="#ffab69" />
+    <circle cx="90" cy="222" r="3.5" fill="#ffab69" />
+    <circle cx="110" cy="222" r="3.5" fill="#ffab69" />
+    <circle cx="120" cy="224" r="3.5" fill="#ffab69" />
+    <circle cx="130" cy="222" r="3.5" fill="#ffab69" />
+
+    <!-- Body -->
+    <ellipse cx="100" cy="172" rx="50" ry="52" fill="#6b4f3a" />
+    <!-- Belly -->
+    <ellipse cx="100" cy="176" rx="34" ry="36" fill="#ffdcc4" />
+    <!-- Belly chevrons -->
+    <path d="M86 162 L91 168 L96 162" stroke="#e8c9a8" stroke-width="1.5" fill="none" />
+    <path d="M96 162 L101 168 L106 162" stroke="#e8c9a8" stroke-width="1.5" fill="none" />
+    <path d="M106 162 L111 168 L116 162" stroke="#e8c9a8" stroke-width="1.5" fill="none" />
+    <path d="M91 173 L96 179 L101 173" stroke="#e8c9a8" stroke-width="1.5" fill="none" />
+    <path d="M101 173 L106 179 L111 173" stroke="#e8c9a8" stroke-width="1.5" fill="none" />
+
+    <!-- Left wing -->
+    <path d="M50 148 C32 162,30 188,46 202 C50 196,52 178,50 162Z" fill="#513825" />
+    <!-- Right wing -->
+    <path d="M150 148 C168 162,170 188,154 202 C150 196,148 178,150 162Z" fill="#513825" />
+
+    <!-- Head -->
+    <circle cx="100" cy="96" r="56" fill="#6b4f3a" />
+    <!-- Face disc -->
+    <ellipse cx="100" cy="99" rx="46" ry="40" fill="#ffdcc4" />
+
+    <!-- Ear tufts -->
+    <path d="M56 56 L44 26 L70 50Z" fill="#513825" />
+    <path d="M144 56 L156 26 L130 50Z" fill="#513825" />
+    <path d="M58 54 L50 34 L66 50Z" fill="#ffdcc4" opacity="0.5" />
+    <path d="M142 54 L150 34 L134 50Z" fill="#ffdcc4" opacity="0.5" />
+
+    <!-- Eyes -->
+    <g>
+      <!-- Left eye -->
+      <circle cx="78" cy="92" r="19" fill="white" stroke="#513825" stroke-width="2" />
+      <circle cx="78" cy="92" r="11" fill="#3a2a1a" />
+      <circle cx="78" cy="92" r="5.5" fill="#000" />
+      <circle cx="74" cy="87" r="3.5" fill="white" opacity="0.9" />
+      <circle cx="82" cy="86" r="1.8" fill="white" opacity="0.6" />
+
+      <!-- Right eye -->
+      <circle cx="122" cy="92" r="19" fill="white" stroke="#513825" stroke-width="2" />
+      <circle cx="122" cy="92" r="11" fill="#3a2a1a" />
+      <circle cx="122" cy="92" r="5.5" fill="#000" />
+      <circle cx="118" cy="87" r="3.5" fill="white" opacity="0.9" />
+      <circle cx="126" cy="86" r="1.8" fill="white" opacity="0.6" />
+    </g>
+
+    <!-- Beak -->
+    <path d="M94 110 L100 120 L106 110Z" fill="#ffab69" stroke="#e89550" stroke-width="1" />
+  </g>
+</svg>
