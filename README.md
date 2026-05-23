@@ -1,4 +1,4 @@
-# Noctua 🦉
+# Noctua🦉
 
 Noctua is a full-stack, cross-platform application designed to be your personalized AI study companion. Instead of just reading static notes, you can upload your study materials and have Noctua instantly summarize them, explain complex topics using the ELI5 framework, or generate dynamic quizzes to test your knowledge. All of this is guided by a sassy, animated owl mascot that reacts to your learning progress. The application securely handles multi-user authentication and ensures your notes and interaction history are safely stored in the cloud.
 
